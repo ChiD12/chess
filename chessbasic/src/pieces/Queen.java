@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Queen extends Piece{
     public Queen(char t,int id){
         super('Q',t,id);
-    } //TEST
+    } //TEST3
 
     public ArrayList<String> canMove(Tile[][] board){
         int i;
