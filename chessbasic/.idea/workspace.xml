@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7882c8f-0ca4-4ec5-bee8-214a7d13bc36" name="Default Changelist" comment="" />
+    <list default="true" id="f7882c8f-0ca4-4ec5-bee8-214a7d13bc36" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessbasic/META-INF/chessbasic.kotlin_module" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,10 +29,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Default/ChessMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="739">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="-1334">
+              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#18850#18851#0" expanded="true" />
                 <element signature="e#18879#18880#0" expanded="true" />
                 <element signature="e#18924#18925#0" expanded="true" />
@@ -111,6 +113,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -137,11 +142,12 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
     <option name="width" value="1149" />
     <option name="height" value="1455" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -238,7 +244,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1519" height="977" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4977307" visible="true" weight="0.09938314" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4977307" visible="true" weight="0.10075394" />
       <window_info id="Favorites" order="1" sideWeight="0.5023847" side_tool="true" weight="0.17272104" />
       <window_info id="Structure" order="2" sideWeight="0.50226927" side_tool="true" weight="0.17272104" />
       <window_info id="Image Layers" order="3" />
@@ -389,10 +395,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Default/ChessMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="-1334">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#18850#18851#0" expanded="true" />
             <element signature="e#18879#18880#0" expanded="true" />
             <element signature="e#18924#18925#0" expanded="true" />
