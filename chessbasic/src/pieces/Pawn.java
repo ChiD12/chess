@@ -11,7 +11,7 @@ public class Pawn extends Piece{
         int i;
         int j;
         int tileID = this.getCurrentTileID();
-        System.out.println("tileID = " + tileID);
+        //System.out.println("tileID = " + tileID);
         i = (tileID)/8;
         j= tileID%8;
         int newI = 0;
@@ -40,25 +40,25 @@ public class Pawn extends Piece{
                 }
 
                 inBounds =inBounds(i,j,newI,newJ);
-                System.out.println(inBounds);
+                //System.out.println(inBounds);
                 if(inBounds){
                     if(k == 0)  {
                         if(!board[newI][newJ].getPiecePresent()){
                             parser = ""+newI + newJ;
-                            System.out.println(parser);
+                            //System.out.println(parser);
                             if(checkForCheck(board,newI,newJ,i,j))
                                 ijAL.add(parser);
-                            System.out.println("Nothing above white pawn, it can move up");
+                            //System.out.println("Nothing above white pawn, it can move up");
                         }
                     }
                     if(k == 1 || k == 2){
                         if(board[newI][newJ].getPiecePresent()){
                             if(board[newI][newJ].getCurrentPiece().getTeam() != board[i][j].getCurrentPiece().getTeam()) {
                                 parser = ""+newI + newJ;
-                                System.out.println(parser);
+                                //System.out.println(parser);
                                 if(checkForCheck(board,newI,newJ,i,j))
                                     ijAL.add(parser);
-                                System.out.println("enemy piece diagonal, pawn can take");
+                                //System.out.println("enemy piece diagonal, pawn can take");
                             }
 
                         }
@@ -75,10 +75,10 @@ public class Pawn extends Piece{
                             }
                             if(!blocker){
                                 parser = ""+newI + newJ;
-                                System.out.println(parser);
+                                //System.out.println(parser);
                                 if(checkForCheck(board,newI,newJ,i,j))
                                     ijAL.add(parser);
-                                System.out.println("nothing above the white piece, and its in starting position, it can move two up");
+                                //System.out.println("nothing above the white piece, and its in starting position, it can move two up");
                             }
                         }
                     }
@@ -109,20 +109,20 @@ public class Pawn extends Piece{
                 if(k == 0)  {
                     if(!board[newI][newJ].getPiecePresent()){
                         parser = ""+newI + newJ;
-                        System.out.println(parser);
+                        //System.out.println(parser);
                         if(checkForCheck(board,newI,newJ,i,j))
                             ijAL.add(parser);
-                        System.out.println("Nothing above white pawn, it can move up");
+                        //System.out.println("Nothing above white pawn, it can move up");
                     }
                 }
                 if(k == 1 || k == 2){
                     if(board[newI][newJ].getPiecePresent()){
                         if(board[newI][newJ].getCurrentPiece().getTeam() != board[i][j].getCurrentPiece().getTeam()) {
                             parser = ""+newI + newJ;
-                            System.out.println(parser);
+                            //System.out.println(parser);
                             if(checkForCheck(board,newI,newJ,i,j))
                                 ijAL.add(parser);
-                            System.out.println("enemy piece diagonal, pawn can take");
+                            //System.out.println("enemy piece diagonal, pawn can take");
                         }
 
                     }
@@ -139,10 +139,10 @@ public class Pawn extends Piece{
                         }
                         if(!blocker){
                             parser = ""+newI + newJ;
-                            System.out.println(parser);
+                            //System.out.println(parser);
                             if(checkForCheck(board,newI,newJ,i,j))
                                 ijAL.add(parser);
-                            System.out.println("nothing above the white piece, and its in starting position, it can move two up");
+                            //System.out.println("nothing above the white piece, and its in starting position, it can move two up");
                         }
                     }
                 }

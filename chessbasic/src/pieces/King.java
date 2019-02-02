@@ -13,7 +13,7 @@ public class King extends Piece{
     }
     public ArrayList<String> canMove(Tile[][] board){
         int tileID = this.getCurrentTileID();
-        System.out.println("tileID = " + tileID);
+        //System.out.println("tileID = " + tileID);
         final int i = (tileID)/8;
         final int j= tileID%8;
         int newI = 0;
@@ -33,10 +33,10 @@ public class King extends Piece{
                         newJ = j - 2;
 
                         parser = "" + newI + newJ;
-                        System.out.println(parser);
+                        //System.out.println(parser);
                         if(checkForCheck(board, newI,newJ,i,j) && checkForCheck(board,newI,newJ+1,i,j) && checkForCheck(board,newI,newJ-1,i,j))
                             ijAL.add(parser);
-                        System.out.println("white king can castle left");
+                        //System.out.println("white king can castle left");
                     }
                 }
             }
@@ -48,10 +48,10 @@ public class King extends Piece{
                         newI = i;
                         newJ = j + 2;
                         parser = "" + newI + newJ;
-                        System.out.println(parser);
+                        //System.out.println(parser);
                         if(checkForCheck(board, newI,newJ,i,j) && checkForCheck(board,newI,newJ-1,i,j))
                             ijAL.add(parser);
-                        System.out.println("white king can castle right");
+                        //System.out.println("white king can castle right");
                     }
                 }
             }
@@ -64,10 +64,10 @@ public class King extends Piece{
                         newI = i;
                         newJ = j-2;
                         parser = ""+newI + newJ;
-                        System.out.println(parser);
+                        //System.out.println(parser);
                         if(checkForCheck(board, newI,newJ,i,j) && checkForCheck(board,newI,newJ+1,i,j) && checkForCheck(board,newI,newJ-1,i,j))
                             ijAL.add(parser);
-                        System.out.println(" black king can castle left");
+                        //System.out.println(" black king can castle left");
                     }
                 }
             }
@@ -76,10 +76,10 @@ public class King extends Piece{
                     if(board[0][5].getPiecePresent() == false && board[0][6].getPiecePresent() == false){
                         newI = i;
                         newJ = j+2;parser = ""+newI + newJ;
-                        System.out.println(parser);
+                        //System.out.println(parser);
                         if(checkForCheck(board, newI,newJ,i,j) && checkForCheck(board,newI,newJ-1,i,j))
                             ijAL.add(parser);
-                        System.out.println("black king can castle right");
+                        //System.out.println("black king can castle right");
                     }
                 }
             }
@@ -118,20 +118,20 @@ public class King extends Piece{
                 if(board[newI][newJ].getPiecePresent()){
                     if(board[newI][newJ].getCurrentPiece().getTeam() != board[i][j].getCurrentPiece().getTeam()){
                         parser = ""+newI + newJ;
-                        System.out.println(parser);
-                        System.out.println("checking for check for: newI: " + newI + " newJ: " + newJ);
+                        //System.out.println(parser);
+                        //System.out.println("checking for check for: newI: " + newI + " newJ: " + newJ);
                         if(checkForCheck(board, newI,newJ,i,j))
                             ijAL.add(parser);
-                        System.out.println("king can take piece at that tile");
+                        //System.out.println("king can take piece at that tile");
                     }
                 }
                 else{
                     parser = ""+newI + newJ;
-                    System.out.println(parser);
-                    System.out.println("checking for check for: newI: " + newI + " newJ: " + newJ);
+                    //System.out.println(parser);
+                    //System.out.println("checking for check for: newI: " + newI + " newJ: " + newJ);
                     if(checkForCheck(board, newI,newJ,i,j))
                         ijAL.add(parser);
-                    System.out.println("king can move there no piece present");
+                    //System.out.println("king can move there no piece present");
                 }
             }
 
@@ -145,8 +145,8 @@ public class King extends Piece{
         int newI;
         int newJ;
         Tile kingTile = board[oldI][oldJ];
-        System.out.println("oldI is: " + oldI + " oldJ is: " + oldJ);
-        System.out.println("the king should be: " + board[oldI][oldJ].getCurrentPiece());
+        //System.out.println("oldI is: " + oldI + " oldJ is: " + oldJ);
+        //System.out.println("the king should be: " + board[oldI][oldJ].getCurrentPiece());
         board[oldI][oldJ] = new Tile();
 
 
@@ -202,8 +202,8 @@ public class King extends Piece{
             }
             int l = 0;
             boolean pieceInTheWay = false;
-            System.out.println("k = " + k);
-            System.out.println("rangeI is " + rangeI + " rangeJ is " + rangeJ);
+            //System.out.println("k = " + k);
+            //System.out.println("rangeI is " + rangeI + " rangeJ is " + rangeJ);
             while (l < ((rangeI < rangeJ) ? rangeI : rangeJ) && !pieceInTheWay) {
                 l++;
 
@@ -235,8 +235,8 @@ public class King extends Piece{
                     newI--;
                     newJ--;
                 }
-                System.out.println(l);
-                System.out.println("newI is " + newI + "newJ is " + newJ);
+                //System.out.println(l);
+                //System.out.println("newI is " + newI + "newJ is " + newJ);
                 Piece pieceAtNew = board[newI][newJ].getCurrentPiece();
                 boolean plusOne = false;
                 boolean minusOne = false;
@@ -266,11 +266,11 @@ public class King extends Piece{
 
                 if (board[newI][newJ].getPiecePresent()) {
                     if(board[newI][newJ].getPiecePresent()){
-                        System.out.println(pieceAtNew);
-                        System.out.println("new is " + pieceAtNew.getTeam());
-                        System.out.println("i is " + i + "j is " + j);
+                        //System.out.println(pieceAtNew);
+                        //System.out.println("new is " + pieceAtNew.getTeam());
+                        //System.out.println("i is " + i + "j is " + j);
                         if (pieceAtNew.getTeam() != this.getTeam()) {
-                            System.out.println("in");
+                            //System.out.println("in");
                             if (k >= 0 && k <= 3) {
                                 // rooks and queens vertical or horizontal
                                 if (pieceAtNew.getRepresentation() == 'Q' || pieceAtNew.getRepresentation() == 'R') {
@@ -310,7 +310,7 @@ public class King extends Piece{
         }
         //check for knights
         for(int k = 0; k < 8; k++) {
-            System.out.println("check for knight k: " + k);
+            //System.out.println("check for knight k: " + k);
             Boolean inBounds = false;
 
             newI = 0;
@@ -319,36 +319,36 @@ public class King extends Piece{
             switch (k){
                 case 0: newI = i -1;
                         newJ = j-2;
-                        System.out.println("Case 0" + newI + " " +newJ);
+                        //System.out.println("Case 0" + newI + " " +newJ);
                         break;
                 case 1: newI = i-2;
-                    newJ = j-1;
-                    System.out.println("Case 1" + newI + " " +newJ);
-                    break;
+                        newJ = j-1;
+                        //System.out.println("Case 1" + newI + " " +newJ);
+                        break;
                 case 2: newI = i-2;
-                    newJ = j+1;
-                    System.out.println("Case 2" + newI + " " +newJ);
-                    break;
+                        newJ = j+1;
+                        //System.out.println("Case 2" + newI + " " +newJ);
+                        break;
                 case 3: newI = i-1;
-                    newJ = j+2;
-                    System.out.println("Case 3" + newI + " " +newJ);
-                    break;
+                        newJ = j+2;
+                        //System.out.println("Case 3" + newI + " " +newJ);
+                        break;
                 case 4: newI = i+1;
-                    newJ = j+2;
-                    System.out.println("Case 4" + newI + " " +newJ);
-                    break;
+                        newJ = j+2;
+                        //System.out.println("Case 4" + newI + " " +newJ);
+                        break;
                 case 5: newI = i+2;
-                    newJ = j+1;
-                    System.out.println("Case 5" + newI + " " +newJ);
-                    break;
+                        newJ = j+1;
+                        //System.out.println("Case 5" + newI + " " +newJ);
+                        break;
                 case 6: newI = i+2;
-                    newJ = j-1;
-                    System.out.println("Case 6" + newI + " " +newJ);
-                    break;
+                        newJ = j-1;
+                        //System.out.println("Case 6" + newI + " " +newJ);
+                        break;
                 case 7: newI = i+1;
-                    newJ = j-2;
-                    System.out.println("Case 7" + newI + " " +newJ);
-                    break;
+                        newJ = j-2;
+                        //System.out.println("Case 7" + newI + " " +newJ);
+                        break;
             }
 
             inBounds = inBounds(i,j,newI,newJ);
@@ -365,7 +365,7 @@ public class King extends Piece{
 
             }inBounds = false;
         }
-        System.out.println("reset************************");
+        //System.out.println("reset************************");
         board[oldI][oldJ] = kingTile;
         return true;
     }

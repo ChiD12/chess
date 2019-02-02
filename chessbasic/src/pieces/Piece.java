@@ -59,19 +59,20 @@ public class Piece {
             if(j> newJ){
                 if(newI >= 0 && newJ >= 0){
                     inBounds = true;
-                    System.out.println("i- j- newI and NewJ GTZ true");}
+                    //System.out.println("i- j- newI and NewJ GTZ true");
+                    }
 
             }
             else if(j< newJ){
                 if(newI >= 0 && newJ <= 7){
                     inBounds = true;
-                    System.out.println("i- j+ newI  GTZ  newJ STS true");
+                    //System.out.println("i- j+ newI  GTZ  newJ STS true");
                 }
             }
             else if(j == newJ){
                 if(newI>= 0){
                     inBounds = true;
-                    System.out.println("i- j= newI  GTZ  newJ same");
+                    //System.out.println("i- j= newI  GTZ  newJ same");
                 }
             }
         }
@@ -79,18 +80,20 @@ public class Piece {
             if(j> newJ){
                 if(newI <= 7 && newJ >= 0){
                     inBounds = true;
-                    System.out.println("i+ j- newI STS and newJ GTZ true");}
+                    //System.out.println("i+ j- newI STS and newJ GTZ true");
+                    }
 
             }
             else if(j< newJ){
                 if(newI <= 7 && newJ <= 7){
                     inBounds = true;
-                    System.out.println("i+ j+ newI and NewJ STS true");}
+                    //System.out.println("i+ j+ newI and NewJ STS true");
+                    }
             }
             else if(j == newJ){
                 if(newI<=7){
                     inBounds = true;
-                    System.out.println("i+ j= newI  STS  newJ same");
+                    //System.out.println("i+ j= newI  STS  newJ same");
                 }
             }
 
@@ -100,13 +103,14 @@ public class Piece {
             if(j> newJ){
                 if(newJ >= 0){
                     inBounds = true;
-                    System.out.println("i= j- newI same and NewJ GTZ true");}
+                    //System.out.println("i= j- newI same and NewJ GTZ true");
+                    }
 
             }
             else if(j< newJ){
                 if(newJ <= 7){
                     inBounds = true;
-                    System.out.println("i= j+ newI  same  newJ STS true");
+                    //System.out.println("i= j+ newI  same  newJ STS true");
                 }
             }
         }
@@ -130,8 +134,8 @@ public class Piece {
         int kingI = (kingTile.getTileID())/8;
         int kingJ = kingTile.getTileID()%8;
 
-        System.out.println("oldI is: " + oldI + " oldJ is: " + oldJ);
-        System.out.println("the king should be: " + board[oldI][oldJ].getCurrentPiece());
+        //System.out.println("oldI is: " + oldI + " oldJ is: " + oldJ);
+        //System.out.println("the king should be: " + board[oldI][oldJ].getCurrentPiece());
         board[oldI][oldJ] = new Tile();
         board[i][j] = tempChangePosition;
 
@@ -188,8 +192,8 @@ public class Piece {
             }
             int l = 0;
             boolean pieceInTheWay = false;
-            System.out.println("k = " + k);
-            System.out.println("rangeI is " + rangeI + " rangeJ is " + rangeJ);
+            //System.out.println("k = " + k);
+            //System.out.println("rangeI is " + rangeI + " rangeJ is " + rangeJ);
             while (l < ((rangeI < rangeJ) ? rangeI : rangeJ) && !pieceInTheWay) {
                 l++;
 
@@ -221,8 +225,8 @@ public class Piece {
                     newI--;
                     newJ--;
                 }
-                System.out.println(l);
-                System.out.println("newI is " + newI + "newJ is " + newJ);
+                //System.out.println(l);
+                //System.out.println("newI is " + newI + "newJ is " + newJ);
                 Piece pieceAtNew = board[newI][newJ].getCurrentPiece();
                 boolean plusOne = false;
                 boolean minusOne = false;
@@ -252,11 +256,11 @@ public class Piece {
 
                 if (board[newI][newJ].getPiecePresent()) {
                     if(board[newI][newJ].getPiecePresent()){
-                        System.out.println(pieceAtNew);
-                        System.out.println("new is " + pieceAtNew.getTeam());
-                        System.out.println("i is " + i + "j is " + j);
+                        //System.out.println(pieceAtNew);
+                        //System.out.println("new is " + pieceAtNew.getTeam());
+                        //System.out.println("i is " + i + "j is " + j);
                         if (pieceAtNew.getTeam() != this.getTeam()) {
-                            System.out.println("in");
+                            //System.out.println("in");
                             if (k >= 0 && k <= 3) {
                                 // rooks and queens vertical or horizontal
                                 if (pieceAtNew.getRepresentation() == 'Q' || pieceAtNew.getRepresentation() == 'R') {
@@ -301,7 +305,7 @@ public class Piece {
         }
         //check for knights
         for(int k = 0; k < 8; k++) {
-            System.out.println("check for knight k: " + k);
+            //System.out.println("check for knight k: " + k);
             Boolean inBounds = false;
 
             newI = 0;
@@ -310,35 +314,35 @@ public class Piece {
             switch (k){
                 case 0: newI = kingI -1;
                         newJ = kingJ-2;
-                        System.out.println("Case 0" + newI + " " +newJ);
+                        //System.out.println("Case 0" + newI + " " +newJ);
                         break;
                 case 1: newI = kingI-2;
                         newJ = kingJ-1;
-                        System.out.println("Case 1" + newI + " " +newJ);
+                        //System.out.println("Case 1" + newI + " " +newJ);
                         break;
                 case 2: newI = kingI-2;
                         newJ = kingJ+1;
-                        System.out.println("Case 2" + newI + " " +newJ);
+                        //System.out.println("Case 2" + newI + " " +newJ);
                         break;
                 case 3: newI = kingI-1;
                         newJ = kingJ+2;
-                        System.out.println("Case 3" + newI + " " +newJ);
+                        //System.out.println("Case 3" + newI + " " +newJ);
                         break;
                 case 4: newI = kingI+1;
                         newJ = kingJ+2;
-                        System.out.println("Case 4" + newI + " " +newJ);
+                        //System.out.println("Case 4" + newI + " " +newJ);
                         break;
                 case 5: newI = kingI+2;
                         newJ = kingJ+1;
-                        System.out.println("Case 5" + newI + " " +newJ);
+                        //System.out.println("Case 5" + newI + " " +newJ);
                         break;
                 case 6: newI = kingI+2;
                         newJ = kingJ-1;
-                        System.out.println("Case 6" + newI + " " +newJ);
+                        //System.out.println("Case 6" + newI + " " +newJ);
                         break;
                 case 7: newI = kingI+1;
                         newJ = kingJ-2;
-                        System.out.println("Case 7" + newI + " " +newJ);
+                        //System.out.println("Case 7" + newI + " " +newJ);
                         break;
             }
 
@@ -357,11 +361,9 @@ public class Piece {
 
             }inBounds = false;
         }
-        System.out.println("reset************************");
+        //System.out.println("reset************************");
         board[oldI][oldJ] = tempChangePosition;
         board[i][j] = tempNewPositionHolder;
         return true;
     }
-
-
 }

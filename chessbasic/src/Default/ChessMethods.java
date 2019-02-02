@@ -32,6 +32,15 @@ public class ChessMethods {
 
         System.out.println("It is " + ((currentTurn)? "White's ": "Black's ") + "turn");
         print(board);
+
+        //check fo checkmate
+        if(whiteKingCheck || blackKingCheck){
+            if(checkMate(board)){
+                System.out.println(((currentTurn)? "White":"Black") + " has 0 possible moves and is in checkmate, " +((!currentTurn)? "White":"Black") + " has won");
+                System.exit(0);
+            }
+        }
+
         selectPieceToMove(board);
 
 
@@ -43,8 +52,30 @@ public class ChessMethods {
 
         swapPossitionsofNewAndOldPieces(board);
 
+        //if player is able to move, then their king must not be in check, then we check if enemy team king is in check after a turn is complete
+        blackKingCheck = false;
+        whiteKingCheck = false;
+        if(!endOfTurnCheck(board)){
+            if(currentTurn){
+                blackKingCheck = true;
+            }
+            else{ // end of black turn
+                whiteKingCheck = true;
+            }
+        }
 
+        if(whiteKingCheck)
+            System.out.println("White King in check");
+        else
+            System.out.println("White king is NOT in check");
+        if(blackKingCheck)
+            System.out.println("Black king is in check");
+        else
+            System.out.println("Black king is NOT in check");
+        currentTurn=!currentTurn;
+        turnCounter++;
 
+        move(board);
     }
     public static void selectPieceToMove(Tile[][] board){
         boolean validmove =false;
@@ -109,12 +140,13 @@ public class ChessMethods {
     public static int[] convertStringInput(String input) {
         int[] convertedInput = new int[2];
         char letter;
+        String upper = input.toUpperCase();
         for(int i = 0; i < 2; i++) {
             if (i == 0) {
-                letter = input.charAt(0);
+                letter = upper.charAt(0);
                 convertedInput[1] = (int) letter - 65;
             } else if (i ==1) {
-                convertedInput[0] = 8-((int) input.charAt(1) - 48);
+                convertedInput[0] = 8-((int) upper.charAt(1) - 48);
             }
         }
         return convertedInput;
@@ -147,7 +179,7 @@ public class ChessMethods {
                 int i = possibleLocation.charAt(0) - 48;
                 int j = possibleLocation.charAt(1) - 48;
                 if (coordinatesNew[0] == i && coordinatesNew[1] == j) {
-                    System.out.println("testing");
+                    //System.out.println("testing");
 
                     validInput = true;
                     foundOne = true;
@@ -182,10 +214,10 @@ public class ChessMethods {
 
             // top black king
             if(oldPosition.getTileID() == 4){
-                System.out.println("2");
+                //System.out.println("2");
                 // top left rook
                 if(newPosition.getTileID() == 2){
-                    System.out.println("pass if statement for castle");
+                    //System.out.println("pass if statement for castle");
                     board[0][3].setCurrentPiece(board[0][0].getCurrentPiece());
                     board[0][3].setPiecePresent(true);
                     board[0][0].setCurrentPiece(null);
@@ -194,7 +226,7 @@ public class ChessMethods {
                 }
                 //top right rook
                 if(newPosition.getTileID() == 6){
-                    System.out.println("pass if statement for castle");
+                    //System.out.println("pass if statement for castle");
                     board[0][5].setCurrentPiece(board[0][7].getCurrentPiece());
                     board[0][5].setPiecePresent(true);
                     board[0][7].setCurrentPiece(null);
@@ -204,10 +236,10 @@ public class ChessMethods {
             }
             //bottom white king
             if(oldPosition.getTileID() == 60){
-                System.out.println("2");
+                //System.out.println("2");
                 // bot left rook
                 if(newPosition.getTileID() == 58){
-                    System.out.println("pass if statement for castle");
+                    //System.out.println("pass if statement for castle");
                     board[7][3].setCurrentPiece(board[7][0].getCurrentPiece());
                     board[7][3].setPiecePresent(true);
                     board[7][0].setCurrentPiece(null);
@@ -216,7 +248,7 @@ public class ChessMethods {
                 }
                 //bot right rook
                 if(newPosition.getTileID() == 62){
-                    System.out.println("pass if statement for castle");
+                    //System.out.println("pass if statement for castle");
                     board[7][5].setCurrentPiece(board[7][7].getCurrentPiece());
                     board[7][5].setPiecePresent(true);
                     board[7][7].setCurrentPiece(null);
@@ -254,30 +286,6 @@ public class ChessMethods {
                 setBlackKingPosition(newPosition);
             }
         }
-
-
-        if(!endOfTurnCheck(board)){
-            if(currentTurn){
-                blackKingCheck = true;
-            }
-            else{ // end of black turn
-                whiteKingCheck = true;
-            }
-        }
-
-        if(whiteKingCheck)
-            System.out.println("White King in check");
-        if(blackKingCheck)
-            System.out.println("Black king is in check");
-
-
-
-
-
-
-        currentTurn=!currentTurn;
-        turnCounter++;
-        move(board);
     }
 
     public static boolean endOfTurnCheck(Tile[][] board){
@@ -297,12 +305,6 @@ public class ChessMethods {
         int rangeJ;
         int newI;
         int newJ;
-
-
-
-
-
-
 
         for (int k = 0; k < 8; k++) {
 
@@ -354,8 +356,8 @@ public class ChessMethods {
             }
             int l = 0;
             boolean pieceInTheWay = false;
-            System.out.println("k = " + k);
-            System.out.println("rangeI is " + rangeI + " rangeJ is " + rangeJ);
+            //System.out.println("k = " + k);
+            //System.out.println("rangeI is " + rangeI + " rangeJ is " + rangeJ);
             while (l < ((rangeI < rangeJ) ? rangeI : rangeJ) && !pieceInTheWay) {
                 l++;
 
@@ -387,8 +389,8 @@ public class ChessMethods {
                     newI--;
                     newJ--;
                 }
-                System.out.println(l);
-                System.out.println("newI is " + newI + "newJ is " + newJ);
+                //System.out.println(l);
+                //System.out.println("newI is " + newI + "newJ is " + newJ);
                 Piece pieceAtNew = board[newI][newJ].getCurrentPiece();
                 boolean plusOne = false;
                 boolean minusOne = false;
@@ -418,11 +420,11 @@ public class ChessMethods {
 
                 if (board[newI][newJ].getPiecePresent()) {
                     if(board[newI][newJ].getPiecePresent()){
-                        System.out.println(pieceAtNew);
-                        System.out.println("new is " + pieceAtNew.getTeam());
-                        System.out.println("i is " + i + "j is " + j);
+                        //System.out.println(pieceAtNew);
+                        //System.out.println("new is " + pieceAtNew.getTeam());
+                        //System.out.println("i is " + i + "j is " + j);
                         if (pieceAtNew.getTeam() != currentKingPosition.getCurrentPiece().getTeam()) {
-                            System.out.println("in");
+                            //System.out.println("in");
                             if (k >= 0 && k <= 3) {
                                 // rooks and queens vertical or horizontal
                                 if (pieceAtNew.getRepresentation() == 'Q' || pieceAtNew.getRepresentation() == 'R') {
@@ -466,35 +468,35 @@ public class ChessMethods {
             switch (k){
                 case 0: newI = i -1;
                         newJ = j-2;
-                        System.out.println("Case 0" + newI + " " +newJ);
+                        //System.out.println("Case 0" + newI + " " +newJ);
                         break;
                 case 1: newI = i-2;
                         newJ = j-1;
-                        System.out.println("Case 1" + newI + " " +newJ);
+                        //System.out.println("Case 1" + newI + " " +newJ);
                         break;
                 case 2: newI = i-2;
                         newJ = j+1;
-                        System.out.println("Case 2" + newI + " " +newJ);
+                        //System.out.println("Case 2" + newI + " " +newJ);
                         break;
                 case 3: newI = i-1;
                         newJ = j+2;
-                        System.out.println("Case 3" + newI + " " +newJ);
+                        //System.out.println("Case 3" + newI + " " +newJ);
                         break;
                 case 4: newI = i+1;
                         newJ = j+2;
-                        System.out.println("Case 4" + newI + " " +newJ);
+                        //System.out.println("Case 4" + newI + " " +newJ);
                         break;
                 case 5: newI = i+2;
                         newJ = j+1;
-                        System.out.println("Case 5" + newI + " " +newJ);
+                        //System.out.println("Case 5" + newI + " " +newJ);
                         break;
                 case 6: newI = i+2;
                         newJ = j-1;
-                        System.out.println("Case 6" + newI + " " +newJ);
+                        //System.out.println("Case 6" + newI + " " +newJ);
                         break;
                 case 7: newI = i+1;
                         newJ = j-2;
-                        System.out.println("Case 7" + newI + " " +newJ);
+                        //System.out.println("Case 7" + newI + " " +newJ);
                         break;
             }
 
@@ -510,6 +512,29 @@ public class ChessMethods {
                 }
 
             }inBounds = false;
+        }
+        return true;
+    }
+
+    private static boolean checkMate(Tile[][] board){
+        char currentTurnChar;
+        ArrayList<String> ijal;
+        int totalPossibleMoves= 0;
+        if (currentTurn)
+            currentTurnChar = 'W';
+        else
+            currentTurnChar = 'B';
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if(board[i][j].getPiecePresent()){
+                    if(board[i][j].getCurrentPiece().getTeam() == currentTurnChar){
+                        ijal = board[i][j].getCurrentPiece().canMove(board);
+                        totalPossibleMoves += ijal.size();
+                        if(totalPossibleMoves > 0)
+                            return false;
+                    }
+                }
+            }
         }
         return true;
     }

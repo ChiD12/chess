@@ -23,8 +23,8 @@ public class Driver {
                 }
                 //Bishops
                 if((j== 2 || j== 5) && (i==0 || i== 7)){
-                    board[i][j] = new Tile( );
-                    //board[i][j] = new Tile( new Bishop(((i==0)? 'B':'W'),idMath));
+                    //board[i][j] = new Tile( );
+                    board[i][j] = new Tile( new Bishop(((i==0)? 'B':'W'),idMath));
                 }
                 //Black Queen
                 if((j== 3) && (i==0)){
@@ -71,7 +71,7 @@ public class Driver {
         }*/
 
 
-        System.out.println(board[7][7].getTileID());
+        //System.out.println(board[7][7].getTileID());
         ChessMethods.move(board);
 
 

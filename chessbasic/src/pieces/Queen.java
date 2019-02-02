@@ -18,7 +18,7 @@ public class Queen extends Piece{
         int tileID = this.getCurrentTileID();
         String parser = "";
 
-        System.out.println("tileID = " + tileID);
+        //System.out.println("tileID = " + tileID);
         i = (tileID)/8;
         j= tileID%8;
         int newI = 0;
@@ -77,7 +77,7 @@ public class Queen extends Piece{
 
             int l = 0;
             boolean pieceInTheWay = false;
-            System.out.println("rangeI = " + rangeI + " rangeJ = " + rangeJ);
+            //System.out.println("rangeI = " + rangeI + " rangeJ = " + rangeJ);
             while (l < ((rangeI < rangeJ) ? rangeI : rangeJ) && !pieceInTheWay) {
                 l++;
 
@@ -110,11 +110,11 @@ public class Queen extends Piece{
                     newJ--;
                 }
 
-                System.out.println("l is " + l + " newI is " + newI + " newJ is " + newJ);
+                //System.out.println("l is " + l + " newI is " + newI + " newJ is " + newJ);
                 if (board[newI][newJ].getPiecePresent()) {
                     if (board[newI][newJ].getCurrentPiece().getTeam() != board[i][j].getCurrentPiece().getTeam()) {
                         parser = "" + newI + newJ;
-                        System.out.println(parser);
+                        //System.out.println(parser);
                         if(checkForCheck(board,newI,newJ,i,j))
                             ijAL.add(parser);
 
@@ -122,7 +122,7 @@ public class Queen extends Piece{
                     pieceInTheWay = true;
                 } else {
                     parser = "" + newI + newJ;
-                    System.out.println(parser);
+                    //System.out.println(parser);
                     if(checkForCheck(board,newI,newJ,i,j))
                         ijAL.add(parser);
                 }
