@@ -115,14 +115,16 @@ public class Queen extends Piece{
                     if (board[newI][newJ].getCurrentPiece().getTeam() != board[i][j].getCurrentPiece().getTeam()) {
                         parser = "" + newI + newJ;
                         System.out.println(parser);
-                        ijAL.add(parser);
+                        if(checkForCheck(board,newI,newJ,i,j))
+                            ijAL.add(parser);
 
                     }
                     pieceInTheWay = true;
                 } else {
                     parser = "" + newI + newJ;
                     System.out.println(parser);
-                    ijAL.add(parser);
+                    if(checkForCheck(board,newI,newJ,i,j))
+                        ijAL.add(parser);
                 }
             }
             top = false;

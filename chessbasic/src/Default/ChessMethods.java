@@ -12,7 +12,7 @@ public class ChessMethods {
     static ArrayList<String> ijAL = null;
     static int[] coordinatesNew;
     boolean castle = false;
-    int turnCounter =0;
+    static int turnCounter =0;
 
     static ArrayList<Piece>  capturedWhite= new ArrayList<Piece>();
     static ArrayList<Piece>  capturedBlack= new ArrayList<Piece>();
@@ -25,8 +25,10 @@ public class ChessMethods {
 
     public static void move(Tile[][] board){
 
+        if(turnCounter == 0){
             setWhiteKingPosition(board[7][4]);
             setBlackKingPosition(board[0][4]);
+        }
 
         System.out.println("It is " + ((currentTurn)? "White's ": "Black's ") + "turn");
         print(board);
@@ -274,6 +276,7 @@ public class ChessMethods {
 
 
         currentTurn=!currentTurn;
+        turnCounter++;
         move(board);
     }
 
@@ -554,5 +557,9 @@ public class ChessMethods {
 
     public static void setBlackKingCheck(Boolean blackKingCheck) {
         ChessMethods.blackKingCheck = blackKingCheck;
+    }
+
+    public static boolean isCurrentTurn() {
+        return currentTurn;
     }
 }
